@@ -8,6 +8,7 @@ check:
 	/usr/bin/time -V
 	java -version
 	gcc --version
+	dmd --help
 	node --version
 	perl --version
 	ruby --version
@@ -22,7 +23,10 @@ test:
 	gcc tests/main.c -o ./main -O3 -march=native
 	${MEASURE} ./main
 	rm ./main
-	# D: skipped
+	# D
+	dmd tests/main.d -of./main -O
+	${MEASURE} ./main
+	rm ./main ./main.o
 	# Erlang: skipped
 	# JavaScript
 	${MEASURE} node tests/main.js
