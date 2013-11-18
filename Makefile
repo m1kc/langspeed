@@ -11,6 +11,8 @@ check:
 	dmd --help
 	node --version
 	perl --version
+	python2 --version
+	pypy --version
 	ruby --version
 
 test:
@@ -34,6 +36,9 @@ test:
 	# PHP: skipped
 	# Perl
 	${MEASURE} perl tests/main.pl
-	# Python: skipped
+	# Python
+	${MEASURE} python2 tests/main.py
+	# Python/PyPy
+	${MEASURE} pypy tests/main.py
 	# Ruby
 	${MEASURE} ruby tests/main.rb
