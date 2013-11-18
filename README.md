@@ -42,7 +42,14 @@ Language                                        | Time        | Peak memory
 ------------------------------------------------|------------:|-------------:
 JavaScript (V8, Chromium)                       |     736  ms |   202 432  Kb
 JavaScript (IonMonkey, FF)                      |   1 007  ms |         -
-JavaScript (OdinMonkey, FF / asm.js / Emscript) |  *1 056  ms |         -
+
+
+### Browsers - full time
+
+Language                                        | Time        | Peak memory
+------------------------------------------------|------------:|-------------:
+JavaScript (IonMonkey, FF)                      |   1 397  ms |         -
+JavaScript (OdinMonkey, FF / asm.js / Emscript) |   1 056  ms |         -
 
 
 Initial results
