@@ -1,0 +1,5 @@
+AC_INIT([src/main.c])
+AM_INIT_AUTOMAKE([main], [0.1])
+AC_PROG_CC
+
+AC_OUTPUT([Makefile src/Makefile])
