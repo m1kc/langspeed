@@ -11,6 +11,7 @@ check:
 	dmd --help # D
 	erlc tests/main.erl; rm main.beam # Erlang
 	node --version # JavaScript
+	ocaml -version # OCaml
 	perl --version # Perl
 	python2 --version # Python
 	pypy --version # Python/PyPy
@@ -37,8 +38,9 @@ test:
 	rm main.erl main.beam erl_crash.dump
 	# JavaScript
 	${MEASURE} node tests/main.js
-	# OCaml: skipped
-	# PHP: skipped
+	# OCaml (memory x20 to get real size)
+	${MEASURE} ocaml tests/main.ml
+	# PHP: skipped (consumes too much memory, run main.php manually)
 	# Perl
 	${MEASURE} perl tests/main.pl
 	# Python
