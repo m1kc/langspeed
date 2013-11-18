@@ -38,11 +38,11 @@ Refer [Makefile](Makefile) to see compiler flags.
 
 ### Browsers
 
-Language                                        | Time       | Peak memory
-------------------------------------------------|-----------:|-------------:
-JavaScript (V8, Chromium)                       |    736  ms |   202 432  Kb
-JavaScript (IonMonkey, FF)                      |  1 007  ms |         -
-JavaScript (OdinMonkey, FF / asm.js / Emscript) |    812  ms |         -
+Language                                        | Time        | Peak memory
+------------------------------------------------|------------:|-------------:
+JavaScript (V8, Chromium)                       |     736  ms |   202 432  Kb
+JavaScript (IonMonkey, FF)                      |   1 007  ms |         -
+JavaScript (OdinMonkey, FF / asm.js / Emscript) |  *1 056  ms |         -
 
 
 Initial results
