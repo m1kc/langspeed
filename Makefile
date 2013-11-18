@@ -16,11 +16,11 @@ test:
 	# D: skipped
 	# Erlang: skipped
 	# JavaScript
-	${MEASURE} node main.js
+	${MEASURE} node tests/main.js
 	# OCaml: skipped
 	# PHP: skipped
 	# Perl
-	${MEASURE} perl main.pl
+	${MEASURE} perl tests/main.pl
 	# Python: skipped
 	# Ruby
-	${MEASURE} ruby main.rb
+	${MEASURE} ruby tests/main.rb
