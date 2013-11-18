@@ -5,8 +5,8 @@ start() ->
 	W = 25600,
 	H = 2048,
 	Stt = now_mills(),
-	array:get(W*H-1, w_loop(array:new(W*H), 0, 0, W, H)), % способ 1
-	%array:map(fun (I,_) -> (I div H) + W*(I rem H) end, array:new(W*H)), % способ 2
+	%array:get(W*H-1, w_loop(array:new(W*H), 0, 0, W, H)), % способ 1
+	array:map(fun (I,_) -> (I div H) + W*(I rem H) end, array:new(W*H)), % способ 2
 	io:format('~w~n', [now_mills() - Stt]),
 	erlang:exit(0).
 
