@@ -46,8 +46,11 @@ JavaScript (IonMonkey, FF)                      |   1 007  ms |         -
 
 ### Browsers - full time
 
+I've made this test specifically to test asm.js and due to its technical limitations.
+
 Language                                        | Time        | Peak memory
 ------------------------------------------------|------------:|-------------:
+JavaScript (V8, Chromium)                       |   1 200  ms |         -
 JavaScript (IonMonkey, FF)                      |   1 397  ms |         -
 JavaScript (OdinMonkey, FF / asm.js / Emscript) |   1 056  ms |         -
 
