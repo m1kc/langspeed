@@ -6,14 +6,15 @@ all: check test
 check:
 	# Doing sanity checks...
 	/usr/bin/time -V
-	java -version
-	gcc --version
-	dmd --help
-	node --version
-	perl --version
-	python2 --version
-	pypy --version
-	ruby --version
+	java -version # Java
+	gcc --version # C
+	dmd --help # D
+	erlc tests/main.erl; rm main.beam # Erlang
+	node --version # JavaScript
+	perl --version # Perl
+	python2 --version # Python
+	pypy --version # Python/PyPy
+	ruby --version # Ruby
 
 test:
 	# Java
@@ -29,7 +30,11 @@ test:
 	dmd tests/main.d -of./main -O
 	${MEASURE} ./main
 	rm ./main ./main.o
-	# Erlang: skipped
+	# Erlang
+	cp tests/main.erl .
+	erlc main.erl
+	${MEASURE} erl -c main -run main start -noshell || true
+	rm main.erl main.beam erl_crash.dump
 	# JavaScript
 	${MEASURE} node tests/main.js
 	# OCaml: skipped
