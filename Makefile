@@ -1,4 +1,4 @@
-MEASURE=/usr/bin/time --format='Peak: %M Kb'
+MEASURE=echo -n 'Time, ms: '; /usr/bin/time --format='Peak: %M Kb'
 
 
 all: check test
@@ -7,6 +7,7 @@ check:
 	# Doing sanity checks...
 	/usr/bin/time -V
 	java -version
+	gcc --version
 	node --version
 	perl --version
 	ruby --version
@@ -17,7 +18,10 @@ test:
 	javac Main.java
 	${MEASURE} java Main
 	rm Main.java Main.class
-	# C: skipped
+	# C
+	gcc tests/main.c -o ./main -O3 -march=native
+	${MEASURE} ./main
+	rm ./main
 	# D: skipped
 	# Erlang: skipped
 	# JavaScript
