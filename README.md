@@ -50,9 +50,9 @@ I've made this test specifically to test asm.js and due to its technical limitat
 
 Language                                        | Time        | Peak memory
 ------------------------------------------------|------------:|-------------:
-JavaScript (V8, Chromium)                       |   1 200  ms |         -
-JavaScript (IonMonkey, FF)                      |   1 397  ms |         -
-JavaScript (OdinMonkey, FF / asm.js / Emscript) |   1 056  ms |         -
+JavaScript (V8, Chromium)                       |     991  ms |         -
+JavaScript (IonMonkey, FF)                      |   1 130  ms |         -
+JavaScript (OdinMonkey, FF / asm.js / Emscript) |     948  ms |         -
 
 
 Initial results
