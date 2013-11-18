@@ -6,6 +6,14 @@ Array benchmark for different languages.
 Credit: [@3bl3gamer](https://github.com/3bl3gamer)
 
 
+Running
+-------
+
+Run `make` to run tests.
+
+`make check` checks that you have all the compilers and interpreters, `make test` runs tests without any checks.
+
+
 My results
 ----------
 
@@ -24,3 +32,5 @@ Python      | 16,258 ms |   618,688 Kb
 Python/PyPy |  3,152 ms | 2,113,628 Kb
 Ruby        | 10,572 ms |   416,248 Kb
 ```
+
+Refer [Makefile](Makefile) to see compiler flags.
