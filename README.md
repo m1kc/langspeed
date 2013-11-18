@@ -5,6 +5,8 @@ Array benchmark for different languages.
 
 Credit: [@3bl3gamer](https://github.com/3bl3gamer)
 
+The task is to create a one-dimensional array of size 25600\*2048, loop over it and fill with values so `a[i+w*j] = i*j` and print time elapsed for this operation. Only loop time counts; time for starting up and allocating memory doesn't.
+
 
 Running
 -------
