@@ -26,8 +26,6 @@ C                            |  1 057  ms |   205 292  Kb
 D                            |    718  ms |   207 860  Kb
 Erlang                       | 14 934  ms | 1 835 808  Kb
 JavaScript (V8, Node.js)     |    919  ms |   214 636  Kb
-JavaScript (V8, Chromium)    |    736  ms |   202 432  Kb
-JavaScript (IonMonkey, FF)   |  1 007  ms |         -
 OCaml                        |  2 707  ms |   507 680  Kb
 PHP                          |      -     |         -
 Perl                         | 10 316  ms | 1 858 504  Kb
@@ -36,6 +34,15 @@ Python/PyPy                  |  3 152  ms | 2 113 628  Kb
 Ruby                         | 10 572  ms |   416 248  Kb
 
 Refer [Makefile](Makefile) to see compiler flags.
+
+
+### Browsers
+
+Language                                        | Time       | Peak memory
+------------------------------------------------|-----------:|-------------:
+JavaScript (V8, Chromium)                       |    736  ms |   202 432  Kb
+JavaScript (IonMonkey, FF)                      |  1 007  ms |         -
+JavaScript (OdinMonkey, FF / asm.js / Emscript) |    812  ms |         -
 
 
 Initial results
