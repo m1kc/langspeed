@@ -26,6 +26,7 @@ C                            |  1 057  ms |   205 292  Kb
 D                            |    718  ms |   207 860  Kb
 Erlang                       | 63 452  ms | 1 944 716  Kb
 JavaScript (V8, Node.js)     |    919  ms |   214 636  Kb
+JavaScript (V8, Chromium)    |    736  ms |         -
 JavaScript (JagerMonkey, FF) | 16 257  ms |         -
 OCaml                        |  2 707  ms |   507 680  Kb
 PHP                          |      -     |         -
