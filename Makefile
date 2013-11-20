@@ -24,7 +24,7 @@ test:
 	${MEASURE} java Main
 	rm Main.java Main.class
 	# C
-	gcc tests/main.c -o ./main -O3 -march=native
+	gcc tests/main.c -o ./main -O3 -march=native -lrt
 	${MEASURE} ./main
 	rm ./main
 	# D
