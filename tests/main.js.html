@@ -1,3 +1,4 @@
+<body>
 <script>
 (function (window) {
 	"use strict";
@@ -78,12 +79,31 @@
 	function measure(desc, f) {
 		var stt = new Date().getTime();
 		f();
-		console.log(desc, new Date().getTime()-stt);
+		stt = new Date().getTime()-stt;
+		console.log(desc, stt);
+		var d = document.createElement("div");
+		d.innerHTML = desc+": "+stt+"ms";
+		document.body.appendChild(d);
 	}
 	
-	measure("just JS", jsTest);
-	measure("JS with imul", jsTestImul);
-	measure("asm.js", struct.asmTest);
+	
+	var tests = {
+		"just JS": jsTest,
+		"JS with imul": jsTestImul,
+		"asm.js": struct.asmTest
+	};
+	for (var t in tests) {
+		var b = document.createElement("button");
+		b.innerHTML = t;
+		b.onclick = (function(t,f) {return function() {
+			measure(t, f);
+		}})(t, tests[t]);
+		document.body.appendChild(b);
+	}
+	for (var t in tests) {
+		measure(t, tests[t]);
+	}
 })(window); // wrapper end
 </script>
+</body>
 
