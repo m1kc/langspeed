@@ -26,6 +26,9 @@ C                            |  1 057  ms |   205 292  Kb
 D                            |    718  ms |   207 860  Kb
 Erlang                       | 14 934  ms | 1 835 808  Kb
 JavaScript (V8, Node.js)     |    919  ms |   214 636  Kb
+Lua                          | 20 665  ms | 2 969 400  Kb
+LuaJIT (JIT off)             |  8 958  ms | 1 165 840  Kb
+LuaJIT                       |  6 241  ms | 1 166 440  Kb
 OCaml                        |  2 707  ms |   507 680  Kb
 PHP                          |      -     |         -
 Perl                         | 10 316  ms | 1 858 504  Kb

@@ -11,6 +11,8 @@ check:
 	dmd --help # D
 	erlc tests/main.erl; rm main.beam # Erlang
 	node --version # JavaScript
+	lua -v # Lua
+	luajit -v # LuaJIT
 	ocaml -version # OCaml
 	perl --version # Perl
 	python2 --version # Python
@@ -38,6 +40,12 @@ test:
 	rm main.erl main.beam erl_crash.dump
 	# JavaScript
 	${MEASURE} node tests/main.js
+	# Lua (x10 to get real numbers)
+	${MEASURE} lua tests/main.lua
+	# LuaJIT, JIT off (x10 to get real numbers)
+	${MEASURE} luajit -j off tests/main.lua
+	# LuaJIT (x10 to get real numbers)
+	${MEASURE} luajit tests/main.lua
 	# OCaml (memory x20 to get real size)
 	${MEASURE} ocaml tests/main.ml
 	# PHP: skipped (consumes too much memory, run main.php manually)
