@@ -24,6 +24,7 @@ Language                     | Time       | Peak memory
 Java                         |    756  ms |   228 848  Kb
 C                            |  1 057  ms |   205 292  Kb
 D                            |    718  ms |   207 860  Kb
+Crystal                      |  1 300  ms |   207 140  Kb
 Erlang                       | 14 934  ms | 1 835 808  Kb
 JavaScript (V8, Node.js)     |    919  ms |   214 636  Kb
 Lua                          | 20 665  ms | 2 969 400  Kb

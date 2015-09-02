@@ -8,7 +8,8 @@ check:
 	/usr/bin/time -V
 	java -version # Java
 	gcc --version # C
-	dmd --help # D
+	dmd --version # D
+	crystal -v # Crystal
 	erlc tests/main.erl; rm main.beam # Erlang
 	node --version # JavaScript
 	lua -v # Lua
@@ -33,6 +34,9 @@ test:
 	dmd tests/main.d -of./main -O
 	${MEASURE} ./main
 	rm ./main ./main.o
+	# Crystal
+	${MEASURE} crystal run tests/main.cr
+	rm -rf .crystal
 	# Erlang
 	cp tests/main.erl .
 	erlc main.erl
