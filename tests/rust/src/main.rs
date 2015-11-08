@@ -16,7 +16,7 @@ fn main() {
     for i in 0..W {
         for j in 0..H{
             v[(i + W * j) as usize] = i * j;
-        } 
+        }
     }
     let total = precise_time_ns() - start;
     println!("{}", total / 1000 / 1000);
@@ -27,7 +27,7 @@ fn write_to_null(i :i32) {
     let path = Path::new("/dev/null");
     let mut options = OpenOptions::new();
     options.write(true).append(true);
-            
+
     let file = match options.open(path) {
         Ok(file) => file,
         Err(..)  => panic!("room"),
