@@ -1,0 +1,7 @@
+[package]
+name = "rust-benchmark"
+version = "0.1.0"
+authors = ["oak"]
+
+[dependencies]
+time = "0.1.13"

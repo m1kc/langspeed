@@ -6,6 +6,7 @@ all: check test
 check:
 	# Doing sanity checks...
 	/usr/bin/time -V
+	cargo --version # Rust
 	java -version # Java
 	gcc --version # C
 	dmd --version # D
@@ -21,6 +22,14 @@ check:
 	ruby --version # Ruby
 
 test:
+	# Rust
+	cp tests/rust/Cargo.toml .
+	mkdir src
+	cp tests/rust/src/main.rs src/
+	${MEASURE} cargo run --release
+	rm Cargo.toml Cargo.lock
+	rm -rf src/
+	rm -rf target/
 	# Java
 	cp tests/Main.java .
 	javac Main.java
