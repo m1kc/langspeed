@@ -36,6 +36,7 @@ Perl                         | 10 316  ms | 1 858 504  Kb
 Python                       | 16 258  ms |   618 688  Kb
 Python/PyPy                  |  3 152  ms | 2 113 628  Kb
 Ruby                         | 10 572  ms |   416 248  Kb
+Rust                         |    942  ms |   207 072  Kb
 
 Refer [Makefile](Makefile) to see compiler flags.
 

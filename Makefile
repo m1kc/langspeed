@@ -6,7 +6,6 @@ all: check test
 check:
 	# Doing sanity checks...
 	/usr/bin/time -V
-	cargo --version # Rust
 	java -version # Java
 	gcc --version # C
 	dmd --version # D
@@ -20,16 +19,9 @@ check:
 	python2 --version # Python
 	pypy --version # Python/PyPy
 	ruby --version # Ruby
+	cargo --version # Rust
 
 test:
-	# Rust
-	cp tests/rust/Cargo.toml .
-	mkdir src
-	cp tests/rust/src/main.rs src/
-	${MEASURE} cargo run --release
-	rm Cargo.toml Cargo.lock
-	rm -rf src/
-	rm -rf target/
 	# Java
 	cp tests/Main.java .
 	javac Main.java
@@ -70,3 +62,11 @@ test:
 	${MEASURE} pypy tests/main.py
 	# Ruby
 	${MEASURE} ruby tests/main.rb
+	# Rust
+	cp tests/rust/Cargo.toml .
+	mkdir src
+	cp tests/rust/src/main.rs src/
+	${MEASURE} cargo run --release
+	rm Cargo.toml Cargo.lock
+	rm -rf src/
+	rm -rf target/
