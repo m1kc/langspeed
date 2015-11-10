@@ -1,0 +1,21 @@
+{
+  "name": "langspeed",
+  "version": "1.0.0",
+  "description": "Array benchmark for different languages.",
+  "private": true,
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "shelljs": "^0.5.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m1kc/langspeed.git"
+  },
+  "author": "m1kc (Max Musatov) <m1kc@yandex.ru>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/m1kc/langspeed/issues"
+  },
+  "homepage": "https://github.com/m1kc/langspeed#readme"
+}
