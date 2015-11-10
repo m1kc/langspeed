@@ -7,7 +7,7 @@ all: check test
 check:
 	# Doing sanity checks...
 	/usr/bin/time -V
-	java -version # Java
+	java -version # Java and Java w/o JIT
 	gcc --version # C
 	dmd --version # D
 	crystal -v # Crystal
@@ -28,6 +28,7 @@ java:
 	cp tests/Main.java .
 	javac Main.java
 	${MEASURE} java Main
+	${MEASURE} java -Xint Main
 	rm Main.java Main.class
 
 c:
