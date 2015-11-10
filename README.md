@@ -21,7 +21,8 @@ My results
 
 Language                     | Time       | Peak memory
 -----------------------------|-----------:|-------------:
-Java                         |    756  ms |   228 848  Kb
+Java                         |    744  ms |   236 044  Kb
+Java (JIT off)               |  1 227  ms |   233 760  Kb
 C                            |  1 057  ms |   205 292  Kb
 D                            |    718  ms |   207 860  Kb
 Crystal                      |  1 300  ms |   207 140  Kb
