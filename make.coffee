@@ -1,5 +1,6 @@
 #!/usr/bin/env coffee
 
+shelljs = require 'shelljs'
 require 'shelljs/global'
 chalk = require 'chalk'
 
@@ -37,7 +38,7 @@ data =
 		name: 'D'
 		check: [
 			'dmd --version | head -n1'
-			'ldc --version | head -n1'
+			'ldc --version | head -n500 | head -n1'
 		]
 		copy: './tests/main.d'
 		compile: [
@@ -142,7 +143,16 @@ for x of data
 	data[x].compile = arrayize(data[x].compile)
 	data[x].tests = arrayize(data[x].tests)
 
-# TODO: check /usr/bin/time
+# Check for /usr/bin/time
+process.stdout.write 'Checking for /usr/bin/time... '
+result = exec '/usr/bin/time --version', silent: true
+console.log (if result.code is 0 then 'ok' else chalk.red('failed'))
+console.log ''
+
+# Pre-clean
+if shelljs.test '-d', './_build'
+	console.log "Cleaning up...\n"
+	rm '-r', './_build'
 
 # TODO: parse agrv
 planned = Object.keys(data)
@@ -154,6 +164,7 @@ for i in planned
 	# TODO: check for mistakes
 	langs.push(data[i])
 
+# Do the actual benchmarking
 for lang in langs
 	# Header
 	console.log "#{chalk.green('Testing language:')} #{lang.name}"
