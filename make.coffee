@@ -243,4 +243,4 @@ for lang in langs
 	cd '..'
 	rm '-r', './_build'
 	console.log ''
-#console.log require('util').inspect results, depth: null
+#console.log JSON.stringify results
