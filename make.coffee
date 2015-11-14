@@ -33,7 +33,7 @@ data =
 		check: 'crystal --version'
 		copy: './tests/main.cr'
 		tests:
-			'Regular': 'crystal run main.cr'
+			'Regular': 'crystal run --release main.cr'
 	d:
 		name: 'D'
 		check: [
