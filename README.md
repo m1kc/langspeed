@@ -32,7 +32,7 @@ Lua                          | 20 665  ms | 2 969 400  Kb
 LuaJIT (JIT off)             |  8 958  ms | 1 165 840  Kb
 LuaJIT                       |  6 241  ms | 1 166 440  Kb
 OCaml                        |  2 707  ms |   507 680  Kb
-PHP                          |      -     |         -
+PHP                          | 20 334  ms | 4 406 800  Kb
 Perl                         | 10 316  ms | 1 858 504  Kb
 Python                       | 16 258  ms |   618 688  Kb
 Python/PyPy                  |  3 152  ms | 2 113 628  Kb
