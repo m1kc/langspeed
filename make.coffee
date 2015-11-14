@@ -155,6 +155,12 @@ if shelljs.test '-d', './_build'
 	rm '-r', './_build'
 
 # TODO: parse agrv
+planned = [
+	'c'
+	'crystal'
+	'rust'
+	'lua'
+]
 planned = Object.keys(data)
 
 # TODO: --checks-only
@@ -164,8 +170,16 @@ for i in planned
 	# TODO: check for mistakes
 	langs.push(data[i])
 
+execute = (cmd) ->
+	tmp = exec cmd, silent: true
+	tmp.output = tmp.output.trim()
+	return tmp
+
+results = {}
+
 # Do the actual benchmarking
 for lang in langs
+	results[lang.name] = {}
 	# Header
 	console.log "#{chalk.green('Testing language:')} #{lang.name}"
 	# Detect toolchain versions
@@ -197,16 +211,36 @@ for lang in langs
 		for i of lang.multiply
 			tmp1.push "#{i} x#{lang.multiply[i]}"
 		tmp2 = tmp1.join ', '
-		console.log "  Note: Shown numbers are wrong due to technical limitations."
-		console.log "  Multiply them: #{tmp2}."
+		#console.log "  Note: Shown numbers are wrong due to technical limitations."
+		#console.log "  Multiply them: #{tmp2}."
 	# Actually run tests
 	for test, cmd of lang.tests
 		console.log chalk.blue "  #{test}"
-		process.stdout.write '   Time, ms: '
-		result = exec "/usr/bin/time --format='   Peak: %M Kb' #{cmd}", silent: false
+		process.stdout.write '...\r'
+		result = execute "/usr/bin/time --format='   Peak: %M Kb' #{cmd}"
+		#console.log "   Time, ms: #{result.output}"
 		if result.code != 0 then console.log chalk.red '   command failed'
+		# Parse results (for the sake of parsing)
+		time = parseFloat(result.output.split('\n')[0])
+		timeAccurate = true
+		if lang.multiply?.time?
+			time = time * lang.multiply.time
+			timeAccurate = false
+		memory = parseInt(result.output.match(/\d+\sKb/g)[0].split(' ')[0])
+		memoryAccurate = true
+		if lang.multiply?.memory?
+			memory = memory * lang.multiply.memory
+			memoryAccurate = false
+		console.log "   Parsed time: #{time} ms"
+		console.log "   Parsed memory: #{memory} KB"
+		results[lang.name][test] =
+			time: time
+			timeAccurate: timeAccurate
+			memory: memory
+			memoryAccurate: memoryAccurate
 	# Remove temp dir
 	console.log chalk.green ' Cleaning up...'
 	cd '..'
 	rm '-r', './_build'
 	console.log ''
+#console.log require('util').inspect results, depth: null
