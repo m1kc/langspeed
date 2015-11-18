@@ -1,5 +1,5 @@
 <?php
-$w = 2560*5;
+$w = 256;
 $h = 2048;
 $a = new SplFixedArray($w*$h);
 $stt = microtime(true);
