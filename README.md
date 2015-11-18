@@ -15,6 +15,8 @@ Run `make` to run tests.
 
 `make check` checks that you have all the compilers and interpreters, `make test` runs tests without any checks.
 
+There's also an experimental CoffeeScript runner. `npm install` to install deps, `./make.coffee` to run.
+
 
 My results
 ----------
