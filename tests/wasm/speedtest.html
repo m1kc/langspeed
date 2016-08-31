@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<pre id="logs"></pre>
+<script>
+function log(text){ logs.textContent += text+"\n" }
+
+var xhr = new XMLHttpRequest()
+xhr.responseType = "arraybuffer"
+xhr.open("GET", "speedtest.wasm")
+xhr.onload = function(e) {
+	if (!window.Wasm) log("Wasm seems not supported")
+	
+	module = Wasm.instantiateModule(new Uint8Array(xhr.response), {})
+	log("load done")
+	log("wasm memory buffer is "+module.exports.memory.byteLength/1024/1024+"MiB")
+	log("testing now...")
+	log("")
+	
+	function test(i) {
+		var stt = Date.now()
+		module.exports.wasmTest()
+		log(i+": "+(Date.now()-stt)+"ms")
+	}
+	
+	var test_num = 0
+	setInterval(function(){
+		if (test_num++ < 10) test(test_num-1)
+	}, 1)
+}
+xhr.send()
+</script>
