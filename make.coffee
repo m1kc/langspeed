@@ -131,6 +131,7 @@ data =
 		tests:
 			'Regular': './target/release/rust-benchmark'
 
+
 arrayize = (x) ->
 	if x is undefined
 		return undefined
