@@ -79,14 +79,10 @@ data =
 		name: 'OCaml'
 		check: 'ocaml -version'
 		copy: 'tests/main.ml'
-		compile: [
-			'ocamlc main.ml -o test1'
-			'ocamlopt main.ml -o test2'
-		]
+		compile: 'ocamlopt main.ml -o main'
 		tests:
-			'Regular': 'ocaml main.ml'
-			'ocamlc': './test1'
-			'ocamlopt': './test2'
+			'Compiled': './main'
+			'Interpreted': 'ocaml main.ml'
 		multiply:
 			time: 20
 			memory: 20
