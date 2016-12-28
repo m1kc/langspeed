@@ -79,9 +79,16 @@ data =
 		name: 'OCaml'
 		check: 'ocaml -version'
 		copy: 'tests/main.ml'
+		compile: [
+			'ocamlc main.ml -o test1'
+			'ocamlopt main.ml -o test2'
+		]
 		tests:
 			'Regular': 'ocaml main.ml'
+			'ocamlc': './test1'
+			'ocamlopt': './test2'
 		multiply:
+			time: 20
 			memory: 20
 	php:
 		name: 'PHP'
