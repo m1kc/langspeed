@@ -79,9 +79,12 @@ data =
 		name: 'OCaml'
 		check: 'ocaml -version'
 		copy: 'tests/main.ml'
+		compile: 'ocamlopt main.ml -o main'
 		tests:
-			'Regular': 'ocaml main.ml'
+			'Compiled': './main'
+			'Interpreted': 'ocaml main.ml'
 		multiply:
+			time: 20
 			memory: 20
 	php:
 		name: 'PHP'
@@ -127,6 +130,7 @@ data =
 		compile: 'cargo build --release'
 		tests:
 			'Regular': './target/release/rust-benchmark'
+
 
 arrayize = (x) ->
 	if x is undefined
