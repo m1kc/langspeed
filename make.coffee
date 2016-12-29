@@ -48,6 +48,13 @@ data =
 		tests:
 			'DMD': './main-dmd'
 			'LDC': './main-ldc'
+	go:
+		name: 'Go'
+		check: 'go version'
+		copy: './tests/main.go'
+		compile: 'go build main.go'
+		tests:
+			'Regular': './main'
 	erlang:
 		name: 'Erlang'
 		check: 'erlc --version 2>&1 | head -n1'
